@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
+const dbConnection = require('./config/dbConnection')
 
 const port = 3000
+
+dbConnection()
 
 app.get('/',(req,res) => {
     res.send(`Connection was successful`)
