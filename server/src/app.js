@@ -10,6 +10,8 @@ app.get('/',(req,res) => {
     res.send(`Connection was successful`)
 })
 
+require('./routes/userRoutes')(app);
+
 app.listen(port , () => {
     console.log(`App started on port ${port}`)
 })
