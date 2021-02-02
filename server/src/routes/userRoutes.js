@@ -4,9 +4,7 @@ module.exports = app => {
 
     const router = require('express').Router()
 
-    router.get('/',(req,res) => {
-        res.send('Get user endpoint');
-    })
+    router.post('/',controller.create)
 
     app.use('/users',router);
 
