@@ -11,18 +11,16 @@ dbConnection()
 
 app.use(bodyParser.json({type: 'application/json' })) // Parse body os requests to JSON
 
-const swaggerDefinition = {
-    openapi: '3.0.2',
-    info: {
-        title: "ezPage API",
-        version: "1.0.0"
-    },
-};
-
 const options = {
-    swaggerDefinition,
-    apis: ['./server/src/routes/*.js'],
-};
+    swaggerDefinition: {
+     openapi: '3.0.0',
+      info: {
+        title: 'ezPage API',
+        version: '1.0.0',
+      },
+    },
+    apis: ['./src/routes/*.js'],
+  };
 
 const swaggerSpec = swaggerJsDoc(options)
 
