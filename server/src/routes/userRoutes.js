@@ -28,6 +28,41 @@ module.exports = app => {
      */
     router.post('/',controller.create)
 
+    /**
+     * @swagger
+     * /users/{_id}:
+     *  get:
+     *   summary: Get a user by ID
+     *   parameters:
+     *    - in: path
+     *      name: _id
+     *      schema:
+     *       type: string
+     *      required: true
+     *      description: ID of the User
+     *   responses:
+     *    '200':
+     *      description: User found
+     *    '404':
+     *      description: User not found
+     *    '500':
+     *      description: ObjectID not valid
+     */
+    router.get('/:id',controller.findOne)
+
+    /**
+     * @swagger
+     * /users:
+     *  get:
+     *   summary: Returns all users
+     *   responses:
+     *    '200':
+     *      description: Returns all the users
+     *    '500':
+     *      description: server problem
+     */
+    router.get('/',controller.findAll)
+
     app.use('/users',router);
 
 }
