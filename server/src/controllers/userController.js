@@ -8,7 +8,7 @@ controller.create = async (req,res) => {
     try {
         await user.save()
         res.status(201)
-        res.send("User saved")
+        res.send(user)
     } catch(err) {
         console.log(err)
     }
