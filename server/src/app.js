@@ -5,7 +5,7 @@ const swaggerJsDoc = require('swagger-jsdoc')
 const app = express()
 const dbConnection = require('./config/dbConnection')
 
-const port = 3000
+const port = 5000
 
 dbConnection()
 
