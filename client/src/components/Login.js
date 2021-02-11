@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Flex, Input, Box, Text, ChakraProvider } from '@chakra-ui/react'
+import { Flex, Input, Box, Text, ChakraProvider, Button, Stack } from '@chakra-ui/react'
 import {ReactComponent as RightImg} from '../assets/img/undraw_my_feed_inj0.svg'
 import './Login.css'
 
@@ -15,19 +15,20 @@ function App() {
                 <RightImg />
                 <Text padding="2%" color="blackAlpha.700" fontSize="6xl">Create your website easily</Text>
             </Box>
-            <Box backgroundColor="white" w="30%" h="100%" padding="2%" d="flex" justifyContent="center"
-            flexDirection="column">
+            <Stack backgroundColor="white" w="30%" h="100%" padding="2%" d="flex" justifyContent="center"
+            flexDirection="column" spacing={3}>
 
-                <Input placeholder="Username" size="lg" marginTop="0.5rem"
+                <Input placeholder="Username" size="lg"
                 onChange={(e) => setUsername(e.target.value)} />
                 
-                <Input placeholder="Password" size="lg" marginTop="0.5rem"
+                <Input placeholder="Password" size="lg"
                 onChange={(e) => setPassword(e.target.value)} />
 
-                <Box as="button" lineHeight="2" backgroundColor="blue.100" marginTop="0.5rem"
-                borderRadius="lg"><Text fontSize="xl" color="gray.500" as="samp">Log in</Text></Box>
+                <Button colorScheme="blue" onClick={() => console.log(`Username ${username} , Password ${password}`)}>
+                    Log in
+                </Button>
 
-            </Box>
+            </Stack>
         </Flex>
     </ChakraProvider>
 
