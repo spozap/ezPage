@@ -10,26 +10,23 @@ function App() {
 
   return (
     <ChakraProvider>
-        <Flex justify="center" align="center" h="100vh" backgroundColor="blue.100">
-            <Box borderWidth="5px" fontSize="35px" borderRadius="lg" w="80%" h="70%"
-            d="flex" flexDirection="row">
-                <Box backgroundColor="white" w="50%" padding="2%" d="flex" justifyContent="center"
-                flexDirection="column">
-                    <Text color="gray.500" as="samp">Log in</Text>
+        <Flex justify="space-between" align="center" h="100vh" backgroundColor="blue.100">
+            <Box w="70%" h="100%" d="flex" flexDirection="column" alignItems="center">
+                <RightImg />
+                <Text padding="2%" color="blackAlpha.700" fontSize="6xl">Create your website easily</Text>
+            </Box>
+            <Box backgroundColor="white" w="30%" h="100%" padding="2%" d="flex" justifyContent="center"
+            flexDirection="column">
 
-                    <Input placeholder="Ususario" size="lg" marginTop="0.5rem"
-                    onChange={(e) => setUsername(e.target.value)} />
-                    
-                    <Input placeholder="Contraseña" size="lg" marginTop="0.5rem"
-                    onChange={(e) => setPassword(e.target.value)} />
-                </Box>
-           
-                <Box w="50%" d="flex" flexDirection="column">
-                    <RightImg />
-                    <>
-                        <Text padding="2%">Create a simple page easily</Text>
-                    </>
-                </Box>
+                <Input placeholder="Username" size="lg" marginTop="0.5rem"
+                onChange={(e) => setUsername(e.target.value)} />
+                
+                <Input placeholder="Password" size="lg" marginTop="0.5rem"
+                onChange={(e) => setPassword(e.target.value)} />
+
+                <Box as="button" lineHeight="2" backgroundColor="blue.100" marginTop="0.5rem"
+                borderRadius="lg"><Text fontSize="xl" color="gray.500" as="samp">Log in</Text></Box>
+
             </Box>
         </Flex>
     </ChakraProvider>
