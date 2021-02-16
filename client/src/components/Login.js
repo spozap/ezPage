@@ -5,34 +5,34 @@ import './Login.css'
 
 function App() {
 
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
-  return (
-    <ChakraProvider>
-        <Flex justify="space-between" align="center" h="100vh" backgroundColor="blue.100">
-            <Box w="70%" h="100%" d="flex" flexDirection="column" alignItems="center">
-                <RightImg />
-                <Text padding="2%" color="blackAlpha.700" fontSize="6xl">Create your website easily</Text>
-            </Box>
-            <Stack backgroundColor="white" w="30%" h="100%" padding="2%" d="flex" justifyContent="center"
-            flexDirection="column" spacing={3}>
+    return (
+        <ChakraProvider>
+            <Flex justify="space-between" align="center" h="100vh" backgroundColor="blue.100">
+                <Box w="70%" h="100%" d="flex" flexDirection="column" alignItems="center">
+                    <RightImg />
+                    <Text padding="2%" color="blackAlpha.700" fontSize="6xl">Create your website easily</Text>
+                </Box>
+                <Stack backgroundColor="white" w="30%" h="100%" padding="2%" d="flex" justifyContent="center"
+                flexDirection="column" spacing={3}>
 
-                <Input placeholder="Username" size="lg"
-                onChange={(e) => setUsername(e.target.value)} />
-                
-                <Input placeholder="Password" size="lg"
-                onChange={(e) => setPassword(e.target.value)} />
+                    <Input placeholder="Username" size="lg"
+                    onChange={(e) => setUsername(e.target.value)} />
+                    
+                    <Input placeholder="Password" size="lg"
+                    onChange={(e) => setPassword(e.target.value)} />
 
-                <Button colorScheme="blue" onClick={() => console.log(`Username ${username} , Password ${password}`)}>
-                    Log in
-                </Button>
+                    <Button colorScheme="blue" onClick={() => console.log(`Username ${username} , Password ${password}`)}>
+                        Log in
+                    </Button>
 
-            </Stack>
-        </Flex>
-    </ChakraProvider>
+                </Stack>
+            </Flex>
+        </ChakraProvider>
 
-  );
+    );
 }
 
 export default App;

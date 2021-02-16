@@ -9,6 +9,8 @@ const port = 5000
 
 dbConnection()
 
+app.set('jwt-key', process.env.JWT_KEY)
+
 app.use(bodyParser.json({type: 'application/json' })) // Parse body os requests to JSON
 
 const options = {
@@ -31,6 +33,7 @@ app.get('/',(req,res) => {
 })
 
 require('./routes/userRoutes')(app);
+require('./routes/authRoutes')(app)
 
 app.listen(port , () => {
     console.log(`App started on port ${port}`)
