@@ -31,10 +31,8 @@ controller.login = async (req,res) => {
             expiresIn: 1440 
         });
 
-        res.json({
-            message: 'Validation OK',
-            token: token
-        })
+        res.cookie('token', token, { httpOnly: true })
+        res.json({ token })
 
 
     } catch(err) {

@@ -4,6 +4,7 @@ const swaggerUi = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 const app = express()
 const dbConnection = require('./config/dbConnection')
+const cookieParser = require('cookie-parser')
 
 const port = 5000
 
@@ -12,6 +13,7 @@ dbConnection()
 app.set('jwt-key', process.env.JWT_KEY)
 
 app.use(bodyParser.json({type: 'application/json' })) // Parse body os requests to JSON
+app.use(cookieParser())
 
 const options = {
   swaggerDefinition: {
