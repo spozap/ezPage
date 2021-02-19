@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
 import { Flex, Input, Box, Text, ChakraProvider, Button, Stack } from '@chakra-ui/react'
+import { useHistory } from 'react-router-dom'
 import {ReactComponent as RightImg} from '../../assets/img/undraw_my_feed_inj0.svg'
 import './Login.css'
 
-function App() {
+function Login() {
+
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
+    let history = useHistory();
+
+    const handleRegisterClick = () => history.push('/register')
+
 
     return (
         <ChakraProvider>
@@ -28,6 +35,10 @@ function App() {
                         Log in
                     </Button>
 
+                    <Button colorScheme="teal" onClick={() => handleRegisterClick()}>
+                        Register
+                    </Button>
+                    
                 </Stack>
             </Flex>
         </ChakraProvider>
@@ -35,4 +46,4 @@ function App() {
     );
 }
 
-export default App;
+export default Login;
