@@ -1,4 +1,5 @@
 const controller = require('../controllers/userController');
+const { validateAuth } = require('../middlewares/auth')
 
 module.exports = app => {
 
@@ -26,7 +27,7 @@ module.exports = app => {
      *      '500':
      *        description: server problem
      */
-    router.post('/',controller.create)
+    router.post('/',validateAuth,controller.create)
 
     /**
      * @swagger

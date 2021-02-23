@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 const model = require('../models/user')
+const { createToken } = require('../services/token')
 
 let controller = {}
 
@@ -15,25 +15,21 @@ controller.login = async (req,res) => {
     }
 
     try {
-        const userValidation = await model.findOne({ username: username , password: password })
+        const user = await model.findOne({ username: username , password: password })
 
-        if (!userValidation) {
+        if (!user) {
             res.sendStatus(404)
             return
         }
 
-        const user = {
-            username: userValidation.username,
-            password: userValidation.password
-        }
+        console.log("UserValidation "+user)
 
-        const token = jwt.sign(user, process.env.JWT_KEY, {
-            expiresIn: 1440 
-        });
+
+        let token = createToken(user)
 
         res.cookie('token', token, { httpOnly: true })
         res.json({ token })
-
+        
 
     } catch(err) {
         console.log(err)

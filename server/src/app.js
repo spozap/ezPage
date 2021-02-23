@@ -10,7 +10,6 @@ const port = 5000
 
 dbConnection()
 
-app.set('jwt-key', process.env.JWT_KEY)
 
 app.use(bodyParser.json({type: 'application/json' })) // Parse body os requests to JSON
 app.use(cookieParser())
