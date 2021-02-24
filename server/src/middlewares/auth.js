@@ -7,8 +7,16 @@ exports.validateAuth = function validateToken (req,res,next) {
         res.status(403).send({message: "Your request does not have authorization header"})
     }
 
-    var token = req.headers.authorization.split(" ")[1]
-    var payload = jwt.decode(token, process.env.JWT_KEY)
+    try {
+        var token = req.headers.authorization.split(" ")[1]
+        var payload = jwt.decode(token, process.env.JWT_KEY)
+    } catch(err){
+        console.log("Token not supported")
+    }
+
+    if (!payload){
+        res.status(401).send({message: "Token is not valid"})
+    }
 
     if(payload.exp <= moment().unix()) {
         res.status(401).send({message: "Token is expired"})
