@@ -16,6 +16,7 @@ exports.validateAuth = function validateToken (req,res,next) {
 
     if (!payload){
         res.status(401).send({message: "Token is not valid"})
+        return
     }
 
     if(payload.exp <= moment().unix()) {

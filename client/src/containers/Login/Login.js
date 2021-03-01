@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Flex, Input, Box, Text, ChakraProvider, Button, Stack } from '@chakra-ui/react'
 import { useHistory } from 'react-router-dom'
 import {ReactComponent as RightImg} from '../../assets/img/undraw_my_feed_inj0.svg'
+import axios from 'axios'
+
 import './Login.css'
 
 function Login() {
@@ -14,6 +16,21 @@ function Login() {
 
     const handleRegisterClick = () => history.push('/register')
 
+    const validateLogin = (username,password) => {
+        axios.post('http://localhost:5000/auth/login',{
+            username: username,
+            password: password
+        }, {
+            withCredentials: true
+        })
+        .then(data => {
+            data.status === 200 && console.log("LOGIN OK")
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
 
     return (
         <ChakraProvider>
@@ -25,13 +42,13 @@ function Login() {
                 <Stack backgroundColor="white" w="30%" h="100%" padding="2%" d="flex" justifyContent="center"
                 flexDirection="column" spacing={3}>
 
-                    <Input placeholder="Username" size="lg"
+                    <Input placeholder="Username" type="text" size="lg"
                     onChange={(e) => setUsername(e.target.value)} />
                     
-                    <Input placeholder="Password" size="lg"
+                    <Input placeholder="Password" type="password" size="lg"
                     onChange={(e) => setPassword(e.target.value)} />
 
-                    <Button colorScheme="blue" onClick={() => console.log(`Username ${username} , Password ${password}`)}>
+                    <Button colorScheme="blue" onClick={() => validateLogin(username,password)}>
                         Log in
                     </Button>
 

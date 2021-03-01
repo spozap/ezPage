@@ -5,6 +5,7 @@ const swaggerJsDoc = require('swagger-jsdoc')
 const app = express()
 const dbConnection = require('./config/dbConnection')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 
 const port = 5000
 
@@ -13,6 +14,12 @@ dbConnection()
 
 app.use(bodyParser.json({type: 'application/json' })) // Parse body os requests to JSON
 app.use(cookieParser())
+
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200
+}))
 
 const options = {
   swaggerDefinition: {

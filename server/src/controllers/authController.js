@@ -18,7 +18,7 @@ controller.login = async (req,res) => {
         const user = await model.findOne({ username: username , password: password })
 
         if (!user) {
-            res.sendStatus(404)
+            res.sendStatus(401)
             return
         }
 
