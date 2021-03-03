@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Flex, Input, Box, Text, ChakraProvider, Button, Stack } from '@chakra-ui/react'
 import { useHistory } from 'react-router-dom'
-import {ReactComponent as RightImg} from '../../assets/img/undraw_my_feed_inj0.svg'
+import { ReactComponent as RightImg } from '../../assets/img/undraw_my_feed_inj0.svg'
 import axios from 'axios'
 
 import './Login.css'
