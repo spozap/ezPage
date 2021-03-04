@@ -11,7 +11,7 @@ import {
     Text
   } from "@chakra-ui/react"
 
-import { AiOutlineCloseCircle } from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
   
 const ColorPicker = () => {
 
@@ -63,22 +63,25 @@ const ColorPicker = () => {
             </MenuList>
         </Menu>
         <Box>
-            {
-                !color ?
-                <Text fontSize="2xl" m={2}>No hay ningun color seleccionado</Text>
-                :
-                <Flex flexDirection="row" justify="center" align="center" ml={2}>
-                    <Box
-                    boxSize="2rem"
-                    borderRadius="0.5rem"
-                    backgroundColor={color.color}
-                    mr="12px"/>
-                    <Text fontSize="2xl">Seleccionado el color {color.text} </Text>
-                    <div style={{marginLeft: 5}}>
-                        <Icon as={AiOutlineCloseCircle} size={100}  onClick={() => setColor(null)}/>
-                    </div>
-                </Flex>
-            }
+            <Flex flexDirection="row" justify="center" align="center" ml={2}>
+
+                {
+                    !color ?
+                    <Text fontSize="2xl" m={2}>No hay ningun color seleccionado</Text>
+                    :
+                        <>
+                            <Box
+                            boxSize="2rem"
+                            borderRadius="0.5rem"
+                            backgroundColor={color.color}
+                            mr="12px"/>
+                            <Text fontSize="2xl">Seleccionado el color {color.text} </Text>
+                            <div style={{marginLeft: 5}}>
+                                <Icon as={AiOutlineClose} size="10x" onClick={() => setColor(null)}/>
+                            </div>
+                        </>
+                }
+            </Flex>
         </Box>
     </Flex>
     )
