@@ -1,10 +1,10 @@
 import React from 'react'
-import ColorPicker from '../../components/ColorPicker'
+import StyleForm from '../../components/StyleForm'
 
 const Admin = () => {
 
     return(
-        <ColorPicker />
+        <StyleForm />
     )
 
 }
