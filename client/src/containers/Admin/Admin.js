@@ -4,7 +4,9 @@ import StyleForm from '../../components/StyleForm'
 const Admin = () => {
 
     return(
-        <StyleForm />
+        <>
+            <StyleForm />
+        </>
     )
 
 }
