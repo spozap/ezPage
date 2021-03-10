@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const model = require('../models/user')
+const bcrypt = require('bcrypt')
 const { createToken } = require('../services/token')
 
 let controller = {}
@@ -15,15 +16,22 @@ controller.login = async (req,res) => {
     }
 
     try {
-        const user = await model.findOne({ username: username , password: password })
+
+        const user = await model.findOne({ username: username })
 
         if (!user) {
             res.sendStatus(401)
             return
         }
 
-        console.log("UserValidation "+user)
+        let compare = await bcrypt.compare(password,user.password)
 
+        if (!compare){
+            res.sendStatus(401)
+            return
+        }
+
+        console.log("UserValidation "+user)
 
         let token = createToken(user)
 
