@@ -1,12 +1,18 @@
 const userModel = require("../models/user")
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
+
+const saltRounds = 10
+
 let controller = {}
 
 controller.create = async (req,res) => {
 
-    const user = new userModel({username: req.body.username, password: req.body.password})
-    
     try {
+        const hashedPwd = await bcrypt.hash(req.body.password, saltRounds)
+
+        const user = new userModel({username: req.body.username, password: hashedPwd})
+
         await user.save()
         res.status(201)
         res.send(user)
