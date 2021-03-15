@@ -1,11 +1,11 @@
 import React from 'react'
-import StyleForm from '../../components/StyleForm'
+import StylesSidebar from '../../components/StylesSidebar'
 
 const Admin = () => {
 
     return(
         <>
-            <StyleForm />
+            <StylesSidebar />
         </>
     )
 
