@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Stack } from '@chakra-ui/react'
+import MediaComponentModal from './Modals/MediaComponentModal'
+
 import './StylesSidebar.css'
 
 const StylesSidebar = () => {
@@ -39,8 +41,11 @@ const StylesSidebar = () => {
                     })
                     
                 }
-                
+
             </Stack>
+            
+            <MediaComponentModal />
+
         </Box>
     )
 

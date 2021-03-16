@@ -13,10 +13,9 @@ const StyleForm = () => {
     const { register,handleSubmit,errors } = useForm()
     const history = useHistory()
 
-    const onSubmit = (data,e) => {
+    const onSubmit = (data) => {
         console.log(data)
         history.push('/result',{...data})
-        //e.target.reset()
     }
 
     return (
